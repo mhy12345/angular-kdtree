@@ -4,17 +4,14 @@
 #include <algorithm>
 
 class Point {
-    static int cluster_total;
     public:
         double x, y;
-        int cluster_id;
         const char* tag;
 
         // Constructers
         Point(double x, double y, const char* tag = NULL);
         Point(const Point& p);
         Point();
-        void make_cluster();
 };
 
 class KDNode {

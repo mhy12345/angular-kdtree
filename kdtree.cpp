@@ -56,12 +56,10 @@ bool operator == (const Point& p1, const Point& p2) {
 }
 
 
-int Point :: cluster_total = 0;
 
 
 Point :: Point() {
     this->x = this->y = 0;
-    this->cluster_id = -1;
     this->tag = NULL;
 }
 
@@ -77,12 +75,6 @@ Point :: Point(const Point& p) {
     this->x = p.x;
     this->y = p.y;
     this->tag = p.tag;
-    this->cluster_id = p.cluster_id;
-}
-
-
-void Point :: make_cluster() {
-    this->cluster_id = ++cluster_total;
 }
 
 
