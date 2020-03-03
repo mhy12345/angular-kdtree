@@ -2,7 +2,7 @@
 
 本工程包含一个简易的球坐标系KD树，支持球坐标系(经纬度坐标)中的最近点查询，其中距离被定义为角距离.
 
-算法介绍: [](https://mhy12345.xyz/technology/angular-kdtree/)
+算法介绍: [球坐标系角距离(angular distance)下的最近点查询算法(KNN)](https://mhy12345.xyz/technology/angular-kdtree/)
 
 一个最简单的Demo为——
 
