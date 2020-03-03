@@ -15,7 +15,7 @@ int main() {
     KDTree kdt = KDTree(); // 新建一个KDTree实例
     Point point_to_insert = Point(
         random()%10000/10000.0*PI*2,  // x, 维度坐标，范围(0, 2pi)
-        random()%10000/10000.0*PI - PI/2,  // y, 精度坐标，范围(0, 2*pi)
+        random()%10000/10000.0*PI - PI/2,  // y, 精度坐标，范围(-pi/2, pi/2)
         NULL // tag, 一个类型为const char*的标签，可用于储存必要的信息
         );
     kdt.Insert(point_to_insert);
