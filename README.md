@@ -31,6 +31,63 @@ int main() {
 }
 ```
 
+```python
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+import ctypes
+from ctypes import *
+ 
+so = cdll.LoadLibrary   
+lib = so("/path/to/kdt_toolbox.so")
+lib.KDTBatchInsert.argtypes = [c_int, POINTER(c_double), POINTER(c_double), POINTER(c_char_p)]
+lib.KDTInsert.argtypes = [c_double, c_double, c_char_p]
+lib.KDTSearch.argtypes = [c_double,c_double]
+lib.KDTSearch.restype = c_char_p
+ 
+xs = np.array(... ,dtype=np.double)
+ys = np.array(... ,dtype=np.double)
+sid = list(map(lambda x:x.encode('ascii'), ...))
+ 
+char_p_arr = ctypes.c_char_p * len(data)
+sid_p = char_p_arr(*sid)
+ 
+xs_p = xs.ctypes.data_as(POINTER(c_double))
+ys_p = ys.ctypes.data_as(POINTER(c_double))
+ 
+lib.KDTInit()
+args = c_int(len(data)),xs_p, ys_p, sid_p
+lib.KDTBatchInsert(*args)
+ 
+args = c_double(xs[0]),c_double(ys[0])
+res = lib.KDTSearch(*args)
+assert(res.decode('ascii') == str(sid[0]))
+```
 
 ## 工程结构
 
